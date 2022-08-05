@@ -1,1 +1,1 @@
-exports.ENV = ["PORT", "HOST", "USER", "PASSWORD", "DB"]
+exports.ENV = ["PORT", "HOST", "USER", "PASSWORD", "DB", "TOKEN_SECRET"]
