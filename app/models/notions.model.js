@@ -3,7 +3,7 @@ const st = require('../storages/notions.storage');
 exports.getAllNotions = async (userId, result) => {
     try {
         const notions = await st.getAllNotionsByUserId(userId);
-        result(null, notions)
+        result(null, {success: true, notions})
     } catch (e) {
         result({message: e}, null);
     }
@@ -16,7 +16,7 @@ exports.getNotion = async (id, userId, result) => {
             result({message: "Not found", code: 404}, null);
             return;
         }
-        result(null, notion)
+        result(null, {success: true, notion})
     } catch (e) {
         result({message: e}, null);
     }
@@ -29,7 +29,7 @@ exports.deleteNotion = async (id, userId, result) => {
             result({message: "Notion not found", code: 404}, null);
             return;
         }
-        result(null)
+        result(null, {success: true})
     } catch (e) {
         result({message: e}, null);
     }

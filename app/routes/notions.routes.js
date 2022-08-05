@@ -5,15 +5,15 @@ module.exports = app => {
 
     const router = require("express").Router();
 
-    //get all users by admins
+    //get all notions
     router.get("/", authenticateToken, users.getAllNotions);
-    //get user by id by admins
+    //get notion by id
     router.get("/:id", authenticateToken, users.getNotion);
-    //create new user by admins
+    //create notion
     router.post("/", authenticateToken, users.createNotion);
-    //update user by admins
+    //update notion
     router.put("/:id", authenticateToken, users.updateNotionById);
-    //delete user by admins
+    //delete notion
     router.delete("/:id", authenticateToken, users.deleteNotionById);
 
     app.use('/notion/', router); // TODO configure swagger-autogen to see this
